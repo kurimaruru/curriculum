@@ -1,0 +1,162 @@
+body{
+    width: 100%;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wrapper{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.header{
+    width: 400px;
+    height: 100px;
+    background-color: #141f40;
+}
+
+.header-box{
+    background-color: white;
+    width: 160px;
+    height: 60px;
+    float: right;
+    position: static;
+    margin: 20px 20px 0 0;
+}
+
+.red-box{
+   display: inline-block;
+}
+
+.box1{
+    width: 40px;
+    height: 40px;
+    background-color: #a9004b;
+    display: inline-block;
+    margin: 10px 0 0 10px;
+}
+
+.box2{
+    width: 40px;
+    height: 40px;
+    background-color: #a9004b;
+    display: inline-block;
+    margin: 10px 0 0 6px;
+}
+
+.box3{
+    width: 40px;
+    height: 40px;
+    background-color: #a9004b;
+    display: inline-block;
+    margin: 10px 0 0 6px;
+}
+
+.side{
+    width: 150px;
+    height: 250px;
+    background-color: #80bfa8;
+    float: left;
+}
+
+.content{
+    width: 250px;
+    height: 250px;
+    background-color: #8c2727;
+    float: right;
+}
+
+.content-item{
+    display: block;
+}
+
+.content-box1{
+    border: 5px solid white;
+    background-color: #ff863f;
+    height: 40px;
+    width: 140px;
+    margin: 40px 60px 0 40px;
+}
+
+.content-box2{
+    border: 5px solid white;
+    background-color: #ff863f;
+    height: 40px;
+    width: 140px;
+    margin: 5px 60px 0 40px;
+}
+
+.content-box3{
+    border: 5px solid white;
+    background-color: #ff863f;
+    height: 40px;
+    width: 140px;
+    margin: 5px 60px 0 40px;
+}
+
+.footer{
+    width: 400px;
+    height: 100px;
+    background-color: #d98d30;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 479px){
+    .header{
+        width: 200px;
+        height: 200px;
+    }
+
+    .header-box{
+        height: 160px;
+        width: 60px;
+        margin:20px 70px 20px 70px;
+    }
+
+    .box2{
+        margin: 6px 10px 0 10px;
+    }
+
+    .box3{
+        margin: 6px 10px 0 10px;
+    }
+
+    .side{
+        width:200px;
+        height: 100px;
+        float: none;
+    }
+    .content{
+        width: 200px;
+        height: 200px;
+        float: left;
+    }
+    
+    .content-item{
+        height: 200px;
+    }
+
+    .content-box1{
+        margin:20px 30px 0 30px;
+    }
+
+    .content-box2{
+        margin:5px 30px 0 30px;
+    }
+
+    .content-box3{
+        margin:5px 30px 0 30px;
+    }
+
+    .footer{
+        width: 200px;
+    }
+}
