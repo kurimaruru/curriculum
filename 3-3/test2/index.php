@@ -2,7 +2,6 @@
 require 'dbconnect.php';
 // セッション開始
 session_start();
-// include_once("dbInfo.php");
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
@@ -26,24 +25,21 @@ if (isset($_POST["signUp"])) {
         // 入力したユーザIDとパスワードを格納
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $password2 = $_POST["password2"];
 
         // 2. ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=localhost; dbname=YIGroupBlog; charset=utf8', $db['host'], $db['dbname']);
+        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
 
         // 3. エラー処理
         try {
             $pdo = db_connect();
             // $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-
-            $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (:name,:password)");
+            $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (:name, :password)");
             $stmt->bindParam(':name',$username);
             $stmt->bindParam(':password',$password);
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
             $userid = $pdo->lastinsertid();  // 登録した(DB側でauto_incrementした)IDを$useridに入れる
 
             $signUpMessage = '登録が完了しました。あなたの登録IDは ' . $userid . ' です。パスワードは ' . $password . ' です。';  // ログイン時に使用するIDとパスワード
-            
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
@@ -72,13 +68,9 @@ if (isset($_POST["signUp"])) {
     echo htmlspecialchars($_POST["username"], ENT_QUOTES);
 } ?>">
                 <br>
-                <label for="password">パスワード</label><input type="password" id="password" name="password" value="<?php if (!empty($_POST["password"])) {
-    echo htmlspecialchars($_POST["password"], ENT_QUOTES);
-} ?>" placeholder="パスワードを入力">
+                <label for="password">パスワード</label><input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
                 <br>
-                <label for="password2">パスワード(確認用)</label><input type="password" id="password2" name="password2" value="<?php if (!empty($_POST["password2"])) {
-    echo htmlspecialchars($_POST["password2"], ENT_QUOTES);
-} ?>" placeholder="再度パスワードを入力">
+                <label for="password2">パスワード(確認用)</label><input type="password" id="password2" name="password2" value="" placeholder="再度パスワードを入力">
                 <br>
                 <input type="submit" id="signUp" name="signUp" value="登録">
             </fieldset>
