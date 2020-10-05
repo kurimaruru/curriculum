@@ -4,14 +4,14 @@
     $get_lastlogin = new getData(); 
     $get_table = new getData();
     
-    $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
-    $pdo = db_connect();
-    try{
-        $post_data = $pdo->prepare($getposts_sql);
-        $post_data->execute();
-    }catch(PDOException $e){
-        echo 'Error'. $e->getMessage();
-    }
+    // $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
+    // $pdo = db_connect();
+    // try{
+    //     $post_data = $pdo->prepare($getposts_sql);
+    //     $post_data->execute();
+    // }catch(PDOException $e){
+    //     echo 'Error'. $e->getMessage();
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -43,15 +43,15 @@
             <td>本文</td>
             <td>投稿日</td>
         </tr>
-        <?php while($row = $post_data->fetch(PDO::FETCH_ASSOC)){ ?>
-            <tr class="content">
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['title']; ?></td>
-                <td><?php echo $row['category_no']; ?></td>
-                <td><?php echo $row['comment']; ?></td>
-                <td><?php echo $row['created']; ?></td>
-            </tr>
-        <?php } ?>
+    <?php foreach($get_table->getPostData() as $post_data ){?>
+        <tr>
+            <td><?php echo $post_data['id']; ?></td>
+            <td><?php echo $post_data['title']; ?></td>
+            <td><?php echo $post_data['category_no']; ?></td>
+            <td><?php echo $post_data['comment']; ?></td>
+            <td><?php echo $post_data['created']; ?></td>
+        </tr>
+    <?php }?>
     </table>
 
     
