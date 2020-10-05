@@ -10,6 +10,7 @@ require_once('db_connect.php');
         }
     }
 
+// コメントをデータベースから引っ張ってくる、引数は$id = $_GET['id'];
     function show_comment($comment_id){
         $pdo = db_connect();
         $sql = "SELECT * FROM comments WHERE post_id = :post_id";
