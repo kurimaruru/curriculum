@@ -1,0 +1,51 @@
+/* ユーザー系の画面で共有 */
+
+.wrapper{
+    text-align:center ;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.header{
+    margin: 0 auto;
+    width: 500px;
+}
+
+.user{
+    background-color: #00ffff;
+    border-radius:0.7em;
+    width: 300px;
+}
+
+input{
+    width: 500px;
+    height: 30px;
+}
+
+/* 以下はユーザー系画面のここのスタイル */
+/* login.php */
+.header-left{
+    float: left;
+}
+
+.header-right{
+    float: right;
+    padding-top: 30px;
+}
+
+.new-user{
+    background-color: #99ffff;
+    border-radius:0.7em;
+    width: 200px;
+    height: 36px;
+}
+
+/* logout.php */
+.logout{
+    text-align: center;
+    
+}

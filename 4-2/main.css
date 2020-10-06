@@ -1,0 +1,73 @@
+.wrapper{
+    text-align: center;
+    margin: 0 auto;
+    width: 700px;
+}
+
+.header{
+    float: left;
+}
+
+.new-user{
+    background-color: #00ffff;
+    border-radius: 0.7em;
+    height: 35px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.logout{
+    background-color: #dddddd;
+    border-radius: 0.7em;
+    height: 35px;
+    width: 100px;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 700px;
+    height: auto;
+}
+table th ,table td{
+    border: solid 1px black;
+    height: 40px;
+}
+
+.infomation{
+    background-color:#dddddd;
+}
+
+.delete{
+    background-color: #ff0461;
+    width: 60px;
+    height: 30px;
+    border-radius: 0.7em;
+}
+
+.footer{
+    float: left;
+    text-align: left;
+}
+
+#title{
+    width: 400px;
+    height: 30px;
+}
+
+#date{
+    width: 400px;
+    height: 30px;
+}
+
+#stock{
+    width: 250px;
+    height: 30px;  
+    float: left;
+}
+
+#register{
+    background-color: #00ffff;
+    height: 30px;
+    width: 150px;
+}
